@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 import uvicorn
+from app.schemas import PostCreate
 
 app = FastAPI()
 
@@ -23,8 +24,8 @@ def get_post(id: int):
     return text_posts.get(id)
 
 @app.post("/posts")
-def create_post():
-    pass
+def create_post(post: PostCreate):
+    text_posts[max(text_posts.keys()) + 1] = {"title": post.title, "content": post.content}
 
 
 
