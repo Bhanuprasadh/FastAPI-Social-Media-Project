@@ -3,10 +3,17 @@ import uvicorn
 
 app = FastAPI()
 
-text_posts = {1: {"title": "New Post", "content": "cool text post"}}
+text_posts = {1: {"title": "New Post", "content": "cool text post"},
+              2: {"title": "New Post", "content": "cool text post"},
+              3: {"title": "New Post", "content": "cool text post"},
+              4: {"title": "New Post", "content": "cool text post"},
+              5: {"title": "New Post", "content": "cool text post"},
+              6: {"title": "New Post", "content": "cool text post"}}
 
 @app.get("/posts")
-def get_all_posts():
+def get_all_posts(limit: int):
+    if limit:
+        return list(text_posts.values())[:limit]
     return text_posts
 
 @app.get("/posts/{id}")
@@ -14,6 +21,10 @@ def get_post(id: int):
     if id not in text_posts:
         raise HTTPException(status_code=404, detail="Post not found")
     return text_posts.get(id)
+
+@app.post("/posts")
+def create_post():
+    pass
 
 
 
