@@ -1,1 +1,1 @@
-# FastAPI-Social-Media-Projec
+# FastAPI-Social-Media-Project
