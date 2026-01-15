@@ -3,7 +3,13 @@ from fastapi import FastAPI, HTTPException
 app = FastAPI()
 
 text_post = {1: {"Name": "Rupa", "Gender": "Female"},
-             2: {"Name": "Bhanuprasadh", "Gender": "Male"}}
+             2: {"Name": "Bhanuprasadh", "Gender": "Male"},
+             3: {"Name": "Bhanuprasadh", "Gender": "Male"},
+             4: {"Name": "Bhanuprasadh", "Gender": "Male"},
+             5: {"Name": "Bhanuprasadh", "Gender": "Male"},
+             6: {"Name": "Bhanuprasadh", "Gender": "Male"},
+             7: {"Name": "Bhanuprasadh", "Gender": "Male"}
+             }
 
 @app.get("/posts")
 def get_all_posts(limit: int=None):
